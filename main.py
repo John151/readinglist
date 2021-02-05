@@ -62,7 +62,9 @@ def change_read():
     book_id = ui.get_book_id()
     book = store.get_book_by_id(book_id)  
     new_read = ui.get_read_value()     
-    book.read = new_read 
+    book.read = new_read
+    read_status = 'have' if book.read else 'have not'
+    ui.message(f'You {read_status} read {book.title} by {book.author}')
     book.save()
     
 
