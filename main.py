@@ -65,6 +65,8 @@ def change_read():
     if book:
         new_read = ui.get_read_value()     
         book.read = new_read 
+        read_status = 'have' if book.read else 'have not'
+        ui.message(f'You {read_status} read {book.title} by {book.author}')
         book.save()
     else:
         print('Book not found')
