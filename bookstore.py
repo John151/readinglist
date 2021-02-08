@@ -19,6 +19,10 @@ class Book:
 
 
     def save(self):
+
+        """ Before books are saved function checks to see if there is an id present in database already
+        which would mean it is an update. If not it is a new entry and is added."""
+
         if self.id:
             self.bookstore._update_book(self)
         else:
